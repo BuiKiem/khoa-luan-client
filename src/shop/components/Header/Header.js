@@ -4,7 +4,7 @@ import { Menu, Typography, Icon, Layout, Button } from "antd";
 
 import classes from "./Header.module.css";
 
-export const Header = ({ openSignUpModal }) => {
+export const Header = ({ openSignUpModal, openSignInModal }) => {
   return (
     <Layout.Header className={classes.header}>
       <Typography.Title className={classes.logo} type="warning" level={2}>
@@ -35,7 +35,12 @@ export const Header = ({ openSignUpModal }) => {
       <div className={classes.grow} />
 
       <div className="headerActions">
-        <Button size="large" className={classes.headerButton} type="primary">
+        <Button
+          onClick={openSignInModal}
+          size="large"
+          className={classes.headerButton}
+          type="primary"
+        >
           SIGN IN
         </Button>
         <Button
@@ -52,5 +57,6 @@ export const Header = ({ openSignUpModal }) => {
 };
 
 Header.propTypes = {
-  openSignUpModal: PropTypes.func.isRequired
+  openSignUpModal: PropTypes.func.isRequired,
+  openSignInModal: PropTypes.func.isRequired
 };
