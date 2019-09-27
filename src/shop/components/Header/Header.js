@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Menu, Typography, Icon, Layout, Button } from "antd";
 
 import classes from "./Header.module.css";
 
-export const Header = () => {
+export const Header = ({ openSignUpModal }) => {
   return (
     <Layout.Header className={classes.header}>
       <Typography.Title className={classes.logo} type="warning" level={2}>
@@ -37,10 +38,19 @@ export const Header = () => {
         <Button size="large" className={classes.headerButton} type="primary">
           SIGN IN
         </Button>
-        <Button size="large" className={classes.headerButton} type="danger">
+        <Button
+          onClick={openSignUpModal}
+          size="large"
+          className={classes.headerButton}
+          type="danger"
+        >
           SIGN UP
         </Button>{" "}
       </div>
     </Layout.Header>
   );
+};
+
+Header.propTypes = {
+  openSignUpModal: PropTypes.func.isRequired
 };

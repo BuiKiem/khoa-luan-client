@@ -1,30 +1,26 @@
 import React, { useState } from "react";
-import { Modal, Button } from "antd";
+import PropTypes from "prop-types";
+import { Button, Modal } from "antd";
 
-export const SignUp = () => {
-  const [visible, setVisible] = useState(true);
+export const SignUp = ({ visible, handleClose }) => {
   const [loading, setLoading] = useState(false);
-
-  const showModal = () => setVisible(true);
 
   const handleOk = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setVisible(false);
+      handleClose();
     }, 3000);
   };
-
-  const handleCancel = () => setVisible(false);
 
   return (
     <Modal
       visible={visible}
       title="Sign Up"
       onOk={handleOk}
-      onCancel={handleCancel}
+      onCancel={handleClose}
       footer={[
-        <Button key="back" onClick={handleCancel}>
+        <Button key="back" onClick={handleClose}>
           Return
         </Button>,
         <Button
@@ -44,4 +40,9 @@ export const SignUp = () => {
       <p>Some contents...</p>
     </Modal>
   );
+};
+
+SignUp.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired
 };
