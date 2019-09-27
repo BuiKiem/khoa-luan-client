@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+}
+
+.logo {
+  width: 15%;
+  min-width: 150px;
+  margin: 10px 0;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.menu {
+  line-height: 64px;
+}
+
+.headerActions{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headerButton {
+  margin: 0 5px;
+}
