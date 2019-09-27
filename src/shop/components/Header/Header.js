@@ -5,6 +5,30 @@ import { Menu, Typography, Icon, Layout, Button } from "antd";
 import classes from "./Header.module.css";
 
 export const Header = ({ openSignUpModal, openSignInModal }) => {
+  const currentUser = true;
+  const headerActions = currentUser ? (
+    <p>Logged in</p>
+  ) : (
+    <div className="headerActions">
+      <Button
+        onClick={openSignInModal}
+        size="large"
+        className={classes.headerButton}
+        type="primary"
+      >
+        SIGN IN
+      </Button>
+      <Button
+        onClick={openSignUpModal}
+        size="large"
+        className={classes.headerButton}
+        type="danger"
+      >
+        SIGN UP
+      </Button>{" "}
+    </div>
+  );
+
   return (
     <Layout.Header className={classes.header}>
       <Typography.Title className={classes.logo} type="warning" level={2}>
@@ -34,24 +58,7 @@ export const Header = ({ openSignUpModal, openSignInModal }) => {
 
       <div className={classes.grow} />
 
-      <div className="headerActions">
-        <Button
-          onClick={openSignInModal}
-          size="large"
-          className={classes.headerButton}
-          type="primary"
-        >
-          SIGN IN
-        </Button>
-        <Button
-          onClick={openSignUpModal}
-          size="large"
-          className={classes.headerButton}
-          type="danger"
-        >
-          SIGN UP
-        </Button>{" "}
-      </div>
+      {headerActions}
     </Layout.Header>
   );
 };
