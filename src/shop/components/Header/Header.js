@@ -1,16 +1,14 @@
 import React from "react";
-import { Menu, Typography, Icon } from "antd";
+import { Menu, Typography, Icon, Layout, Button } from "antd";
 
 import classes from "./Header.module.css";
 
-const { Title } = Typography;
-
 export const Header = () => {
   return (
-    <header>
-      <Title className={classes.logo} type="warning" level={2}>
+    <Layout.Header className={classes.header}>
+      <Typography.Title className={classes.logo} type="warning" level={2}>
         Travellers
-      </Title>
+      </Typography.Title>
 
       <Menu
         theme="dark"
@@ -23,9 +21,26 @@ export const Header = () => {
           <Icon type="home" />
           Hotel
         </Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+        <Menu.Item key="2">
+          <Icon type="rocket" />
+          Flight
+        </Menu.Item>
+        <Menu.Item key="3">
+          <Icon type="percentage" />
+          Promotion
+        </Menu.Item>
       </Menu>
-    </header>
+
+      <div className={classes.grow} />
+
+      <div className="headerActions">
+        <Button size="large" className={classes.headerButton} type="primary">
+          SIGN IN
+        </Button>
+        <Button size="large" className={classes.headerButton} type="danger">
+          SIGN UP
+        </Button>{" "}
+      </div>
+    </Layout.Header>
   );
 };
