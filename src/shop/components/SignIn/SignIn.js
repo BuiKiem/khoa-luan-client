@@ -1,15 +1,40 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Button, Modal } from "antd";
+import { withFormik, Field } from "formik";
+import * as yup from "yup";
+import { Button, Icon, Modal } from "antd";
 
-export const SignIn = ({ visible, handleClose }) => {
+import { CustomInputField } from "../CustomInputField/CustomInputField";
+import { emailValidation, passwordValidation } from "../../validationSchemas";
+
+const validationSchema = yup.object().shape({
+  email: emailValidation,
+  password: passwordValidation
+});
+
+const initialValues = { email: "", password: "" };
+
+export const SignIn = withFormik({
+  validationSchema,
+  mapPropsToValues: () => initialValues,
+  handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
+    await console.log(values);
+  }
+})(({ visible, handleClose, handleSubmit, resetForm, isValid }) => {
   const [loading, setLoading] = useState(false);
+
+  const handleCancel = () => {
+    handleClose();
+    resetForm(initialValues);
+  };
 
   const handleOk = () => {
     setLoading(true);
+    handleSubmit();
     setTimeout(() => {
       setLoading(false);
       handleClose();
+      resetForm();
     }, 3000);
   };
 
@@ -18,9 +43,9 @@ export const SignIn = ({ visible, handleClose }) => {
       visible={visible}
       title="Sign In"
       onOk={handleOk}
-      onCancel={handleClose}
+      onCancel={handleCancel}
       footer={[
-        <Button key="back" onClick={handleClose}>
+        <Button key="back" onClick={handleCancel}>
           Return
         </Button>,
         <Button
@@ -28,19 +53,31 @@ export const SignIn = ({ visible, handleClose }) => {
           type="primary"
           loading={loading}
           onClick={handleOk}
+          disabled={!isValid}
         >
           Sign In
         </Button>
       ]}
     >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      <div>
+        <Field
+          name="email"
+          type="email"
+          prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
+          placeholder="email"
+          component={CustomInputField}
+        />
+        <Field
+          name="password"
+          prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
+          type="password"
+          placeholder="Password"
+          component={CustomInputField}
+        />
+      </div>
     </Modal>
   );
-};
+});
 
 SignIn.propTypes = {
   visible: PropTypes.bool.isRequired,
