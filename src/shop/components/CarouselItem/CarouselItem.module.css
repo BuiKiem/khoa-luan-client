@@ -1,0 +1,7 @@
+.carouselItem {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  height: 200px;
+  background-color: aqua;
+}

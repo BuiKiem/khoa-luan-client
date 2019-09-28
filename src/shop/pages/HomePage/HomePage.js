@@ -1,5 +1,7 @@
 import React from "react";
 
+import { PromotionCarousel } from "../../components/PromotionCarousel/PromotionCarousel";
+
 export const HomePage = () => {
-  return <h1>HomePage</h1>;
+  return <PromotionCarousel />;
 };
