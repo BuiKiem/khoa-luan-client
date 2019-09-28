@@ -17,7 +17,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header openSignUpModal={openSignUpModal} openSignInModal={openSignInModal} />
+      <Header
+        openSignUpModal={openSignUpModal}
+        openSignInModal={openSignInModal}
+      />
       <SignUp visible={signUpVisible} handleClose={closeSignUpModal} />
       <SignIn handleClose={closeSignInModal} visible={signInVisible} />
     </div>
