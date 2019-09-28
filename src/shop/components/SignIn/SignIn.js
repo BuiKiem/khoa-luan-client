@@ -1,25 +1,44 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withFormik } from "formik";
-import { Button, Modal, Form, Input, Icon, Checkbox } from "antd";
+import * as yup from "yup";
+import { Button, Checkbox, Form, Icon, Input, Modal } from "antd";
 
 import classes from "./SignIn.module.css";
+import { emailValidation, passwordValidation } from "../../validationSchemas";
+
+const validationSchema = yup.object().shape({
+  email: emailValidation,
+  password: passwordValidation
+});
+
+const initialValues = { email: "", password: "" };
 
 export const SignIn = withFormik({
-  mapPropsToValues: () => ({ email: "", password: "" }),
+  validationSchema,
+  validateOnChange: false,
+  mapPropsToValues: () => initialValues,
   handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
     await console.log(values);
   }
 })(
   ({
-    values,
     visible,
     handleClose,
+    values,
     handleChange,
     handleBlur,
-    handleSubmit
+    handleSubmit,
+    touched,
+    errors,
+    resetForm
   }) => {
     const [loading, setLoading] = useState(false);
+
+    const handleCancel = () => {
+      handleClose();
+      resetForm(initialValues);
+    };
 
     const handleOk = () => {
       setLoading(true);
@@ -27,6 +46,7 @@ export const SignIn = withFormik({
       setTimeout(() => {
         setLoading(false);
         handleClose();
+        resetForm();
       }, 3000);
     };
 
@@ -35,9 +55,9 @@ export const SignIn = withFormik({
         visible={visible}
         title="Sign In"
         onOk={handleOk}
-        onCancel={handleClose}
+        onCancel={handleCancel}
         footer={[
-          <Button key="back" onClick={handleClose}>
+          <Button key="back" onClick={handleCancel}>
             Return
           </Button>,
           <Button
@@ -51,9 +71,11 @@ export const SignIn = withFormik({
         ]}
       >
         <div>
-          <Form.Item>
+          <Form.Item
+            help={touched.email && errors.email ? errors.email : ""}
+            validateStatus={touched.email && errors.email ? "error" : undefined}
+          >
             <Input
-              autoFocus
               name="email"
               type="email"
               prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
@@ -63,7 +85,12 @@ export const SignIn = withFormik({
               onBlur={handleBlur}
             />
           </Form.Item>
-          <Form.Item>
+          <Form.Item
+            help={touched.password && errors.password ? errors.password : ""}
+            validateStatus={
+              touched.password && errors.password ? "error" : undefined
+            }
+          >
             <Input
               value={values.password}
               onChange={handleChange}
