@@ -1,9 +1,12 @@
 import React from "react";
+import { Layout } from "antd";
 
 import { Header } from "./shop/components/Header/Header";
 import { SignUp } from "./shop/components/SignUp/SignUp";
-import { useModal } from "./shop/customHook";
 import { SignIn } from "./shop/components/SignIn/SignIn";
+import { HomePage } from "./shop/pages/HomePage/HomePage";
+
+import { useModal } from "./shop/customHook";
 
 function App() {
   const [signUpVisible, setSignUpVisible] = useModal(false);
@@ -16,14 +19,23 @@ function App() {
   const closeSignInModal = () => setSignInVisible(false);
 
   return (
-    <div className="App">
-      <Header
-        openSignUpModal={openSignUpModal}
-        openSignInModal={openSignInModal}
-      />
+    <Layout>
+      <Layout.Header>
+        <Header
+          openSignUpModal={openSignUpModal}
+          openSignInModal={openSignInModal}
+        />
+      </Layout.Header>
+
+      <Layout.Content>
+        <HomePage />
+      </Layout.Content>
+
+      <Layout.Footer>Footer</Layout.Footer>
+
       <SignUp visible={signUpVisible} handleClose={closeSignUpModal} />
       <SignIn handleClose={closeSignInModal} visible={signInVisible} />
-    </div>
+    </Layout>
   );
 }
 
