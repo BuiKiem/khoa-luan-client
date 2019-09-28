@@ -4,16 +4,17 @@ import { Button, Icon, Modal } from "antd";
 import { Field, withFormik } from "formik";
 import * as yup from "yup";
 
-import { emailValidation, passwordValidation } from "../../validationSchemas";
+import {
+  emailValidation,
+  passwordValidation,
+  confirmPasswordValidation
+} from "../../validationSchemas";
 import { CustomInputField } from "../CustomInputField/CustomInputField";
 
 const validationSchema = yup.object().shape({
   email: emailValidation,
   password: passwordValidation,
-  password2: yup
-    .string()
-    .oneOf([yup.ref("password")], "Passwords do not match")
-    .required()
+  password2: confirmPasswordValidation
 });
 
 const initialValues = { email: "", password: "", password2: "" };

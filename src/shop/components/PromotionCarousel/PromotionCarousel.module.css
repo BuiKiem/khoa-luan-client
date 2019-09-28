@@ -1,0 +1,11 @@
+.carouselContainer {
+  margin: 10px 0;
+}
+
+.carouselController {
+  display: flex;
+  padding: 0 5px;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
+}
