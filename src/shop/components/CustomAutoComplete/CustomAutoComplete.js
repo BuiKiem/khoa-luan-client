@@ -87,7 +87,6 @@ export const CustomAutoComplete = () => {
         className="certain-category-search"
         dropdownClassName="certain-category-search-dropdown"
         dropdownMatchSelectWidth={false}
-        size="large"
         style={{ width: "100%" }}
         dataSource={options}
         placeholder="input here"
