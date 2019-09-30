@@ -1,0 +1,11 @@
+.searchBoxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchBox {
+  background-color: pink;
+  width: 70%;
+  height: 200px;
+}
