@@ -1,9 +1,10 @@
 import React from "react";
-import { Button, Tabs, Icon } from "antd";
+import { Tabs, Icon } from "antd";
 
 import { SearchHotelForm } from "../SearchHotelForm/SearchHotelForm";
 
 import classes from "./SearchBox.module.css";
+import { SearchFlightForm } from "../SearchFlightForm/SearchFlightForm";
 
 const { TabPane } = Tabs;
 
@@ -36,7 +37,7 @@ export const SearchBox = () => {
           }
           key="flight"
         >
-          <Button>Search Flight</Button>
+          <SearchFlightForm />
         </TabPane>
       </Tabs>
     </div>

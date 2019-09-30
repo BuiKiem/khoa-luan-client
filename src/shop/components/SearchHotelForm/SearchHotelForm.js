@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Form, Input, Row, DatePicker, InputNumber } from "antd";
+import { Button, Col, Form, Row, DatePicker, InputNumber } from "antd";
 
 import { CustomAutoComplete } from "../CustomAutoComplete/CustomAutoComplete";
 
