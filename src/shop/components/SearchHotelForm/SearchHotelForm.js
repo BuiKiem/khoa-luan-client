@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Checkbox, Col, Form, Input, Row } from "antd";
+import { Button, Col, Form, Input, Row } from "antd";
 
 import classes from "./SearchHotelForm.module.css";
 export const SearchHotelForm = () => {
@@ -7,36 +7,36 @@ export const SearchHotelForm = () => {
     <div className={classes.searchFormContainer}>
       <Row gutter={8}>
         <Col span={15}>
-          <Form.Item label="Username">
+          <Form.Item label="City or destination">
             <Input placeholder="Username" />
           </Form.Item>
         </Col>
         <Col span={9}>
-          <Form.Item label="Password">
+          <Form.Item label="Guest(s) and Room(s)">
             <Input type="password" placeholder="Password" />
           </Form.Item>
         </Col>
       </Row>
 
-      <Row type="flex" gutter={8} align="center">
+      <Row type="flex" gutter={8} align="bottom">
         <Col span={5}>
-          <Form.Item label="Username">
+          <Form.Item label="Check-in">
             <Input placeholder="Username" />
           </Form.Item>
         </Col>
         <Col span={5}>
-          <Form.Item label="Username">
+          <Form.Item label="Duration">
             <Input placeholder="Username" />
           </Form.Item>
         </Col>
         <Col span={5}>
-          <Form.Item label="Username">
+          <Form.Item label="Check-out">
             <Input placeholder="Username" />
           </Form.Item>
         </Col>
         <Col span={9} className={classes.searchButton}>
-          <Form.Item label="Search" className={classes.transparentLabel}>
-            <Button block shape="round">
+          <Form.Item>
+            <Button type="primary" block shape="round" icon="search">
               SEARCH
             </Button>
           </Form.Item>
