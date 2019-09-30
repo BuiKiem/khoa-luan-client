@@ -1,14 +1,17 @@
 import React from "react";
 import { Button, Col, Form, Input, Row } from "antd";
 
+import { CustomAutoComplete } from "../CustomAutoComplete/CustomAutoComplete";
+
 import classes from "./SearchHotelForm.module.css";
+import { CustomInputField } from "../CustomInputField/CustomInputField";
 export const SearchHotelForm = () => {
   return (
     <div className={classes.searchFormContainer}>
       <Row gutter={8}>
         <Col span={15}>
           <Form.Item label="City or destination">
-            <Input placeholder="Username" />
+            <CustomAutoComplete />
           </Form.Item>
         </Col>
         <Col span={9}>
