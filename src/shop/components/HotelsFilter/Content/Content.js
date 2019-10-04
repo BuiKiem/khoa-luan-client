@@ -2,6 +2,7 @@ import React from "react";
 import { Collapse } from "antd";
 
 import { HotelPriceRange } from "../HotelPriceRange/HotelPriceRange";
+import { HotelTypeCheckBox } from "../HotelTypeCheckBox/HotelTypeCheckBox";
 
 const { Panel } = Collapse;
 
@@ -12,7 +13,7 @@ export const Content = () => {
         <HotelPriceRange />
       </Panel>
       <Panel header="Accommodation Type" key="2">
-        Content 2
+        <HotelTypeCheckBox />
       </Panel>
     </Collapse>
   );
