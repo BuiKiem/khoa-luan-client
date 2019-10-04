@@ -43,7 +43,7 @@ export const Header = withRouter(
           </Typography.Title>
         </Link>
         <Menu
-          selectedKeys={menuKey}
+          selectedKeys={[menuKey]}
           theme="dark"
           mode="horizontal"
           className={classes.menu}

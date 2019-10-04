@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Row, Col, Button, Typography } from "antd";
 
 import { SearchHotelForm } from "../../components/SearchHotelForm/SearchHotelForm";
+import { HotelsFilter } from "../../components/HotelsFilter/HotelsFilter";
 
 import classes from "./HotelsPage.module.css";
 import { HotelsSort } from "../../components/HotelsSort/HotelsSort";
@@ -38,8 +39,9 @@ export const HotelsPage = () => {
 
       <Row type="flex" justify="center" className={classes.hotelsPageRow}>
         <Col span={6} className={classes.filterContainer}>
-          <div style={{ backgroundColor: "white" }}>
+          <div>
             <HotelsSort />
+            <HotelsFilter />
           </div>
         </Col>
         <Col span={14} className={classes.hotelsListContainer}>
