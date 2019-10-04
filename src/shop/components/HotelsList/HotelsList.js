@@ -33,7 +33,11 @@ export const HotelsList = () => {
       dataSource={listData}
       renderItem={item => (
         <List.Item
-          style={{ backgroundColor: "white", margin: "10px 0", padding: "10px" }}
+          style={{
+            backgroundColor: "white",
+            margin: "10px 0",
+            padding: "10px"
+          }}
           key={item.title}
           extra={
             <img
