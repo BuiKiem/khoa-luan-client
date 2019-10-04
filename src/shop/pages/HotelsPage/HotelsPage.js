@@ -3,6 +3,7 @@ import { Row, Col, Button, Typography } from "antd";
 
 import { SearchHotelForm } from "../../components/SearchHotelForm/SearchHotelForm";
 import { HotelsFilter } from "../../components/HotelsFilter/HotelsFilter";
+import { HotelsList } from "../../components/HotelsList/HotelsList";
 
 import classes from "./HotelsPage.module.css";
 import { HotelsSort } from "../../components/HotelsSort/HotelsSort";
@@ -45,8 +46,8 @@ export const HotelsPage = () => {
           </div>
         </Col>
         <Col span={14} className={classes.hotelsListContainer}>
-          <div style={{ backgroundColor: "white" }}>
-            <h1>List</h1>
+          <div>
+            <HotelsList />
           </div>
         </Col>
       </Row>
