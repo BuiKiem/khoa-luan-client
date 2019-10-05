@@ -1,6 +1,8 @@
 import React from "react";
 import { List } from "antd";
 
+import { FlightItem } from "./FlightItem/FlightItem";
+
 const data = [
   "Racing car sprays burning fuel into crowd.",
   "Japanese princess to wed commoner.",
@@ -24,7 +26,7 @@ export const FlightList = () => {
       }}
       bordered
       dataSource={data}
-      renderItem={item => <List.Item>{item}</List.Item>}
+      renderItem={item => <FlightItem />}
     />
   );
 };
