@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Col, Row } from "antd";
 
+import { FlightList } from "../../components/FlightList/FlightList";
 import { SearchDescription } from "../../components/SearchDescription/SearchDescription";
-import {SearchFlightForm} from "../../components/SearchFlightForm/SearchFlightForm";
+import { SearchFlightForm } from "../../components/SearchFlightForm/SearchFlightForm";
 
 const searchDescriptionData = {
   mainDescription:
@@ -24,6 +26,12 @@ export const FlightsPage = () => {
         searchForm={<SearchFlightForm />}
         {...searchDescriptionData}
       />
+
+      <Row type="flex" justify="center">
+        <Col span={20}>
+          <FlightList />
+        </Col>
+      </Row>
     </div>
   );
 };
