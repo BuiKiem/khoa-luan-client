@@ -3,6 +3,8 @@ import { List } from "antd";
 
 import { FlightItem } from "./FlightItem/FlightItem";
 
+import classes from "./FlightList.module.css";
+
 const data = [
   "Racing car sprays burning fuel into crowd.",
   "Japanese princess to wed commoner.",
@@ -19,6 +21,7 @@ const data = [
 export const FlightList = () => {
   return (
     <List
+      className={classes.flightListContainer}
       size="large"
       header={<div>Filter</div>}
       pagination={{

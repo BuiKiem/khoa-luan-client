@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Col, Row, Typography } from "antd";
 
-import { SearchFlightForm } from "../SearchFlightForm/SearchFlightForm";
-
 import classes from "./SearchDescription.module.css";
 
 export const SearchDescription = ({
