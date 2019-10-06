@@ -2,6 +2,7 @@ import React from "react";
 import { List } from "antd";
 
 import { FlightItem } from "./FlightItem/FlightItem";
+import { FlightFilter } from "./FlightFilter/FlightFilter";
 
 import classes from "./FlightList.module.css";
 
@@ -23,7 +24,7 @@ export const FlightList = () => {
     <List
       className={classes.flightListContainer}
       size="large"
-      header={<div>Filter</div>}
+      header={<FlightFilter />}
       pagination={{
         pageSize: 5
       }}
