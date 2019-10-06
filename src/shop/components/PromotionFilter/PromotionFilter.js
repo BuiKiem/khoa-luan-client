@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Checkbox, Col, Row, Typography } from "antd";
+import { Card, Checkbox, Typography } from "antd";
 
 const options = [
   { label: "Hotel", value: "Hotel" },
