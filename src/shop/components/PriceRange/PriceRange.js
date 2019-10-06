@@ -4,7 +4,7 @@ import { Row, Col, Slider, InputNumber } from "antd";
 const DEFAULT_MIN_VALUE = 0;
 const DEFAULT_MAX_VALUE = 10000000;
 
-export const HotelPriceRange = () => {
+export const PriceRange = () => {
   const [minValue, setMinValue] = useState(DEFAULT_MIN_VALUE);
   const [maxValue, setMaxValue] = useState(DEFAULT_MAX_VALUE);
 
