@@ -1,18 +1,28 @@
 import React from "react";
 import { List, Card } from "antd";
 
+import { PromotionItem } from "./PromotionItem/PromotionItem";
+
 const data = [
   {
-    title: "Title 1"
+    content: "Content 1",
+    startDate: "01-01-19",
+    endDate: "31-01-19"
   },
   {
-    title: "Title 2"
+    content: "Content 2",
+    startDate: "01-01-19",
+    endDate: "31-01-19"
   },
   {
-    title: "Title 3"
+    content: "Content 3",
+    startDate: "01-01-19",
+    endDate: "31-01-19"
   },
   {
-    title: "Title 4"
+    content: "Content 4",
+    startDate: "01-01-19",
+    endDate: "31-01-19"
   }
 ];
 
@@ -21,11 +31,7 @@ export const PromotionsList = () => {
     <List
       grid={{ gutter: 8, column: 2 }}
       dataSource={data}
-      renderItem={item => (
-        <List.Item>
-          <Card title={item.title}>Card Content</Card>
-        </List.Item>
-      )}
+      renderItem={item => <PromotionItem item={item} />}
     />
   );
 };
