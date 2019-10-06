@@ -1,23 +1,15 @@
 import React from "react";
-import { List, Avatar, Icon, Typography } from "antd";
+import { List, Typography } from "antd";
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
   listData.push({
     href: "http://ant.design",
     title: `Hotel ${i}`,
-    avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
     description: "[Hotel Address]",
     price: "10000000"
   });
 }
-
-const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
-  </span>
-);
 
 export const HotelsList = () => {
   return (
@@ -35,7 +27,7 @@ export const HotelsList = () => {
         <List.Item
           style={{
             backgroundColor: "white",
-            margin: "10px 0",
+            marginBottom: "10px",
             padding: "10px"
           }}
           key={item.title}

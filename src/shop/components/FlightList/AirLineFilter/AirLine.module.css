@@ -1,0 +1,8 @@
+.airLineContainer {
+  width: 200px;
+}
+
+.airLine {
+  display: flex;
+  justify-content: space-between;
+}

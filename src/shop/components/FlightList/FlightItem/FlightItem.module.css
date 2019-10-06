@@ -1,0 +1,26 @@
+.flightItemContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.flightGeneralContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.itemActionContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.fareDetailContainer {
+  width: 50%;
+  align-self: end;
+}
+
+.fareDetailItem {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

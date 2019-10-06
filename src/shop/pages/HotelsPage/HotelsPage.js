@@ -1,42 +1,31 @@
 import React, { useState } from "react";
-import { Row, Col, Button, Typography } from "antd";
+import { Row, Col } from "antd";
 
-import { SearchHotelForm } from "../../components/SearchHotelForm/SearchHotelForm";
 import { HotelsFilter } from "../../components/HotelsFilter/HotelsFilter";
 import { HotelsList } from "../../components/HotelsList/HotelsList";
+import { SearchDescription } from "../../components/SearchDescription/SearchDescription";
 
 import classes from "./HotelsPage.module.css";
 import { HotelsSort } from "../../components/HotelsSort/HotelsSort";
+import { SearchHotelForm } from "../../components/SearchHotelForm/SearchHotelForm";
+
+const searchDescriptionData = {
+  mainDescription: "Accommodations in [Ho Chi Minh City]",
+  subDescriptions: ["[Oct 3, 2019 - Oct 4, 2019]"]
+};
 
 export const HotelsPage = () => {
   const [showSearchForm, setShowSearchForm] = useState(false);
+
+  const toggleShowSearchForm = () => setShowSearchForm(!showSearchForm);
   return (
     <div>
-      <Row type="flex" justify="center" className={classes.hotelsPageRow}>
-        <Col span={20}>
-          <Row>
-            <Col span={16}>
-              <Typography.Title level={3}>
-                Your search result in [Ho Chi Minh City]
-              </Typography.Title>
-              <Typography.Title level={4} type="secondary">
-                [Oct 3, 2019 - Oct 4, 2019]
-              </Typography.Title>
-            </Col>
-            <Col span={8}>
-              <Button
-                type="secondary"
-                block
-                size="large"
-                onClick={() => setShowSearchForm(!showSearchForm)}
-              >
-                CHANGE SEARCH
-              </Button>
-            </Col>
-          </Row>
-          {showSearchForm && <SearchHotelForm />}
-        </Col>
-      </Row>
+      <SearchDescription
+        show={showSearchForm}
+        toggleShow={toggleShowSearchForm}
+        searchForm={<SearchHotelForm />}
+        {...searchDescriptionData}
+      />
 
       <Row type="flex" justify="center" className={classes.hotelsPageRow}>
         <Col span={6} className={classes.filterContainer}>
