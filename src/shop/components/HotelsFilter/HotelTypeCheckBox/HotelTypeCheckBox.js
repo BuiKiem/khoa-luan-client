@@ -14,7 +14,6 @@ export const HotelTypeCheckBox = () => {
 
   const handleOnCheck = checkedValues => {
     setChecked(checkedValues);
-    console.log(checkedValues);
   };
 
   return (
